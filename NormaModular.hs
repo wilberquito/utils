@@ -1,6 +1,6 @@
+import System.Environment
+import System.IO
 
-add :: Int -> Int -> Int
-add a b = (+) a b
 
 normalize :: Int -> Int -> Int
 normalize n range 
@@ -17,6 +17,7 @@ main = do
     else do
         let n = read (args !! 0) :: Int
             range = read (args !! 1) :: Int
+            normalized = normalize n range
 
-        putStrLn $ "El número " ++ (show n) ++ " módulo " ++ range ++ "\nnormaliado es {{" (show (normalize n range)) ++ "}}"
+        putStrLn $ "El número " ++ (show n) ++ " módulo " ++ (show range) ++ "\nnormaliado es {{" ++ (show normalized) ++ "}}"
 
