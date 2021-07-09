@@ -56,6 +56,18 @@ take' n xs
     | otherwise = head xs : take' (n-1) (tail xs)
 
 
+{-
+>>> reverse' [1,2,3]
+[3,2,1]
+
+reverse [1, 2, 3]
+reverse [2, 3] ++ [1]
+reverse [3] ++ [2] ++ [1]
+reverse [] ++ [3] ++ [2] ++ [1]
+[] ++ [3] ++ [2] ++ [1]
+-}
 reverse' :: [a] -> [a]
 reverse' [] = []
 reverse' (x:xs) = reverse' xs ++ [x]
+
+
