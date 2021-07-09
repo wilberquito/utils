@@ -31,10 +31,31 @@ replicate' :: Integral a => a -> a -> [a]
 replicate' 0 _ = []
 replicate' n x = x : replicate' (n-1) x
 
-{-
->>> :t show
-show :: forall a. Show a => a -> String
 
->>> :t read
-read :: forall a. Read a => String -> a
+{-
+>>> :t null
+null :: forall (t :: * -> *) a. Foldable t => t a -> Bool
+
+>>> take' 5 [1..10]
+[1,2,3,4,5]
+
+>>> take' 5 [1..3]
+[1,2,3]
+
+>>> take' (-1) [1..3]
+[]
+
+>>> take' 1 "hola"
+"h"
 -}
+
+take' :: Integral a => a -> [b] -> [b]
+take' n xs
+    | n <= 0 = []
+    | null xs = []
+    | otherwise = head xs : take' (n-1) (tail xs)
+
+
+reverse' :: [a] -> [a]
+reverse' [] = []
+reverse' (x:xs) = reverse' xs ++ [x]
