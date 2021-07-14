@@ -75,3 +75,51 @@ el tipo realshape
 area :: Shape2d -> Float
 area (Circle2d _ r) = pi*r*r
 area (Rectangle2d (Point2d tl) (Point2d tr) (Point2d bl) _) = abs(fst tr - fst tl) * abs(snd tl - snd bl)
+
+{-
+    <!-- 
+        problema:
+            crea una función que desplace una figura sobre el eje x
+    -->
+
+>>> let p = Point2d (1,1)
+>>> p
+Point2d (1.0,1.0)
+>>> let c = Circle2d p 2
+>>> c
+Circle2d (Point2d (1.0,1.0)) 2.0
+
+>>> let ct = transformX c 2
+>>> ct
+Circle2d (Point2d (3.0,1.0)) 2.0
+
+>>> let lt = Point2d (-1,1)
+>>> lt
+Point2d (-1.0,1.0)
+
+
+>>> let rt = Point2d (1,1)
+>>> rt
+Point2d (1.0,1.0)
+
+>>> let lb = Point2d (-1,-1)
+>>> lb
+Point2d (-1.0,-1.0)
+
+
+>>> let rb = Point2d (1,-1)
+>>> rb
+Point2d (1.0,-1.0)
+
+>>> let rec = Rectangle2d lt rt lb rb
+>>> rec
+Rectangle2d (Point2d (-1.0,1.0)) (Point2d (1.0,1.0)) (Point2d (-1.0,-1.0)) (Point2d (1.0,-1.0))
+>>> let rect = transformX rec 2
+>>> rect
+Rectangle2d (Point2d (1.0,1.0)) (Point2d (3.0,1.0)) (Point2d (1.0,-1.0)) (Point2d (3.0,-1.0))
+-}
+
+transformX :: Shape2d -> Float -> Shape2d
+transformX (Circle2d (Point2d c) r) x = Circle2d (Point2d (fst c + x, snd c)) r
+transformX (Rectangle2d (Point2d tl) (Point2d tr) (Point2d bl) (Point2d br)) x = 
+    Rectangle2d (Point2d (fst tl + x, snd tl)) (Point2d (fst tr + x, snd tr)) (Point2d (fst bl + x, snd bl)) (Point2d (fst br + x, snd br))
