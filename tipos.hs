@@ -123,3 +123,50 @@ transformX :: Shape2d -> Float -> Shape2d
 transformX (Circle2d (Point2d c) r) x = Circle2d (Point2d (fst c + x, snd c)) r
 transformX (Rectangle2d (Point2d tl) (Point2d tr) (Point2d bl) (Point2d br)) x = 
     Rectangle2d (Point2d (fst tl + x, snd tl)) (Point2d (fst tr + x, snd tr)) (Point2d (fst bl + x, snd bl)) (Point2d (fst br + x, snd br))
+
+
+curriculum :: [(String, Float)]
+curriculum = [
+    ("algebra", 6),
+    ("calcul", 6.5),
+    ("logica i mat discreta", 7),
+    ("mtp1", 5.6),
+    ("etc1", 6.1),
+    ("fisica i electronica", 7),
+    ("mtp2", 6.5),
+    ("etc2", 7.7),
+    ("estadistica", 6.3),
+    ("organizacion i adm empresa", 5.8),
+    ("eda", 5.8),
+    ("projecte de programacio", 6.5),
+    ("sistemes digitals", 7.3),
+    ("computadors", 7.2),
+    ("bd", 6.3),
+    ("engenyieria soft 1", 6.1),
+    ("sistemes operatious", 6.4),
+    ("multimedia", 8),
+    ("fonaments de computacio", 7.3),
+    ("paradigmes", 7),
+    ("inteligencia artificial", 6.4),
+    ("arquitectura computadors", 6),
+    ("robotica", 7.3),
+    ("engenyeria soft 2", 5.5),
+    ("projecte desenvolupament soft", 7.8),
+    ("projecte sistemes operatius", 7.6),
+    ("xarxes", 6.7),
+    ("projecte de xarxes", 7.4),
+    ("legislacio", 6.5),
+    ("estades en entorn laboral", 9),
+    ("informatica grafica", 8.1),
+    ("criptografica", 7.8),
+    ("computacio numerica", 6)]
+
+todo :: [String]
+todo = [
+    "tecnicas avanzadas IA",
+    "programacio declartiva",
+    "compiladores",
+    "TFG"]
+
+avarage :: [Float] -> Float
+avarage ls =   sum ls / fromIntegral (length ls)  
