@@ -26,16 +26,6 @@ g2 =
     (4, [1])
   ]
 
-g3 :: [(Int, [Int])]
-g3 =
-  [ (1, [2, 6]),
-    (2, [3, 4]),
-    (3, [4]),
-    (4, [5]),
-    (5, [2, 3]),
-    (6, [])
-  ]
-
 {-
 >>> bfs g1 2
 [2,3,4,1]
@@ -105,19 +95,25 @@ ibfs visited queue graph =
 
 
 {-
->>>  hasPath g3 2 4
+>>>  thereIsPath g3 2 4
 True
->>> hasPath g3 6 4
-False
-
->>>  hasPath g3 2 5
-True
-
+>>> thereIsPath g3 6 4
 False
 -}
+
+g3 :: [(Int, [Int])]
+g3 =
+  [ (1, [2, 6]),
+    (2, [3, 4]),
+    (3, [4]),
+    (4, [5]),
+    (5, [2, 3]),
+    (6, [])
+  ]
+
 -- (graph, n1, n2) => True | False
-hasPath :: Eq a => [(a, [a])] -> a -> a -> Bool
-hasPath graph n1 n2
+thereIsPath :: Eq a => [(a, [a])] -> a -> a -> Bool
+thereIsPath graph n1 n2
     | n1 == n2 = True
     | otherwise =  ibfs2 [n1] [n1] n2 graph
 
