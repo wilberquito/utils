@@ -1,7 +1,5 @@
 import Data.List
 import Data.Maybe
-import Distribution.Compat.Graph (neighbors)
-
 {-
     Graph:
         [
