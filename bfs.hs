@@ -118,7 +118,7 @@ thereIsPath graph n1 n2
     | otherwise =  ibfs2 [n1] [n1] n2 graph
 
 
--- (visited, queue, graph, goal) => visited
+-- (visited, queue, graph, goal) => True | False
 ibfs2 :: Eq a => [a] -> [a] -> a -> [(a, [a])] -> Bool
 ibfs2 _ [] _ _ = False
 ibfs2 visited queue goal graph = 
@@ -130,3 +130,5 @@ ibfs2 visited queue goal graph =
         nv = visited ++ utils
 
     (goal `elem` neighbors) || ibfs2 nv nq goal graph
+
+
