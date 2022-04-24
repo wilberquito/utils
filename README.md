@@ -1,4 +1,9 @@
-# Haskell-Utils
-Funciones de computo que me solucionan problemas sencillos.
+# Utils
+Funciones de cómputo de uso general
 
-**To generate .exe => ghc --make *.hs**
+## Haskell
+
+Compile Haskell code
+```
+To generate .exe => ghc --make *.hs
+```
